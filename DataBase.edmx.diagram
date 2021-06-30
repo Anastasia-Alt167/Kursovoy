@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ce10b747f8c3493b934b43cdfd3caa5f" Name="Diagram1">
+        <EntityTypeShape EntityType="AviakompaniyaModel.Admins" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AviakompaniyaModel.Aircraft1" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AviakompaniyaModel.Airlines" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AviakompaniyaModel.Countries" Width="1.5" PointX="0.75" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AviakompaniyaModel.Flights" Width="1.5" PointX="5.25" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AviakompaniyaModel.Passengers" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AviakompaniyaModel.Places" Width="1.5" PointX="5.25" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AviakompaniyaModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AviakompaniyaModel.Tickets" Width="1.5" PointX="7.5" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AviakompaniyaModel.Town" Width="1.5" PointX="3" PointY="2" IsExpanded="true" />
+        <AssociationConnector Association="AviakompaniyaModel.FK_Aircraft1_Airlines" ManuallyRouted="false" />
+        <AssociationConnector Association="AviakompaniyaModel.FK_Flights_Aircraft1" ManuallyRouted="false" />
+        <AssociationConnector Association="AviakompaniyaModel.FK_Places_Aircraft1" ManuallyRouted="false" />
+        <AssociationConnector Association="AviakompaniyaModel.FK_Town_Countries_Какая_страна_" ManuallyRouted="false" />
+        <AssociationConnector Association="AviakompaniyaModel.C_FK_Tickets_Flights_Принадлежит_" ManuallyRouted="false" />
+        <AssociationConnector Association="AviakompaniyaModel.FK_Flights_Town" ManuallyRouted="false" />
+        <AssociationConnector Association="AviakompaniyaModel.FK_Flights_Town1" ManuallyRouted="false" />
+        <AssociationConnector Association="AviakompaniyaModel.FK_Tickets_Passengers_Полетел_" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
