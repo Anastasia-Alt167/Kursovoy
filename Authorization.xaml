@@ -14,10 +14,11 @@
                 <DropShadowEffect BlurRadius="30" Color="#439889" ShadowDepth="0"/>
             </Border.Effect>
             <StackPanel>
-                <TextBlock Text="Добро пожаловать!" FontSize="30" FontWeight="Bold" Margin="0 0 0 20" Foreground="White"/>
+                <TextBlock Text="Добро пожаловать!" FontSize="30" FontWeight="Bold" Margin="0,0,193.4,20" Foreground="White"/>
                 <Grid Margin="0 0 0 20">
                     <Button HorizontalAlignment="Left" Content="Зарегистрироваться" Foreground="White" Background="#00695c" Style="{StaticResource MaterialDesignFlatButton }" Margin="0,0,0.4,0" Width="187" Click="RegButton_Click"/>
                     <Button HorizontalAlignment="Right" Content="Войти" Foreground="White" Style="{StaticResource MaterialDesignFlatButton }" Margin="0,0,0.4,0" Width="187" Click="EnterButton_Click" Background="#00695c"/>
+                    <Button HorizontalAlignment="Right" Content="Админ" Foreground="White" Style="{StaticResource MaterialDesignFlatButton }" Margin="0,-52,0.4,52" Width="187"  Background="#00695c" Click="Button_Admin"/>
                 </Grid>
                 <TextBox materialDesign:HintAssist.Hint="Введите логин" Name="Login" Foreground="White" Style="{StaticResource MaterialDesignFloatingHintTextBox}" CaretBrush="#FF006D4F" SelectionBrush="#FF1F7D63" BorderBrush="#FF006D4F"/>
                 <PasswordBox materialDesign:HintAssist.Hint="Введите пароль" Name="Password" Foreground="White"  Style="{StaticResource MaterialDesignFilledPasswordBox}" BorderBrush="#FF006D4F" CaretBrush="#FF006D4F" SelectionBrush="#FF1F7D63"/>

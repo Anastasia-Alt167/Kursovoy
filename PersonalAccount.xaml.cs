@@ -28,7 +28,6 @@ namespace Kursovoy
             using (var context = new AviakompaniyaEntities())
             {
                 Name.Text = context.Passengers.Where(x => x.Passenger_Number == PassangerRecord.passangerRecord.Passenger_Number).Select(x => x.Name).FirstOrDefault()?.ToString();
-
                 Surname.Text = context.Passengers.Where(x => x.Passenger_Number == PassangerRecord.passangerRecord.Passenger_Number).Select(x => x.Surname).FirstOrDefault()?.ToString();
                 MiddleName.Text = context.Passengers.Where(x => x.Passenger_Number == PassangerRecord.passangerRecord.Passenger_Number).Select(x => x.Middle_Name).FirstOrDefault()?.ToString();
                 //data

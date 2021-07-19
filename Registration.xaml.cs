@@ -23,6 +23,10 @@ namespace Kursovoy
     {
         public static Passengers passangerRecord;
     }
+    public static class AdminRecord
+    {
+        public static Admins adminRecord;
+    }
     public partial class Registration : Page
     {
         public Registration()
@@ -117,7 +121,7 @@ namespace Kursovoy
                                 context.Passengers.Add(user);
                                 context.SaveChanges();
 
-                                RecordOfUsers.recordOfUsers = context.Passengers.Where(x => x.Login == UserLoginReg).Select(x => x).FirstOrDefault();
+                                PassangerRecord.passangerRecord = context.Passengers.Where(x => x.Login == UserLoginReg).Select(x => x).FirstOrDefault();
 
                                 Uri SearchTicket = new Uri("SearchTicket.xaml", UriKind.Relative);
                                 this.NavigationService.Navigate(SearchTicket);

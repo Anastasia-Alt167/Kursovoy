@@ -132,5 +132,11 @@ namespace Kursovoy
         {
 
         }
+
+        private void PA_Button_Click(object sender, RoutedEventArgs e)
+        {
+            Uri personalaccount = new Uri("PersonalAccount.xaml", UriKind.Relative);
+            this.NavigationService.Navigate(personalaccount);
+        }
     }
 }

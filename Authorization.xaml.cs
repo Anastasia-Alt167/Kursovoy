@@ -15,7 +15,9 @@ using System.Windows.Shapes;
 
 namespace Kursovoy
 {
-    public static class RecordOfUsers { public static Passengers recordOfUsers; }
+    public static class RecordOfUsers { public static Passengers recordOfUsers;  }
+    public static class RecordOfAdmins { public static Admins recordOfAdmins; }
+
     /// <summary>
     /// Логика взаимодействия для Authorization.xaml
     /// </summary>
@@ -43,13 +45,36 @@ namespace Kursovoy
             {
                 using (var context = new AviakompaniyaEntities())
                 {
-                    RecordOfUsers.recordOfUsers = context.Passengers.Where(x => x.Login == Login.Text).Select(x => x).FirstOrDefault();
+                    PassangerRecord.passangerRecord = context.Passengers.Where(x => x.Login == Login.Text).Select(x => x).FirstOrDefault();
                 }
                 Uri searchticket = new Uri("SearchTicket.xaml", UriKind.Relative);
                 this.NavigationService.Navigate(searchticket);
             }
             else
+
+            MessageBox.Show("Неверный логин или пароль");
+            
+        }
+
+        private void Button_Admin(object sender, RoutedEventArgs e)
+        {
+            Admins admins = null;
+            using (var context = new AviakompaniyaEntities())
+            {
+                admins = (Admins)context.Admins.Where(x => x.Login == Login.Text && x.Password == Password.Password).FirstOrDefault();
+            };
+            if (admins != null)
+            {
+                using (var context = new AviakompaniyaEntities())
+                {
+                    AdminRecord.adminRecord = context.Admins.Where(x => x.Login == Login.Text).Select(x => x).FirstOrDefault();
+                }
+                Uri Admin = new Uri("Admin.xaml", UriKind.Relative);
+                this.NavigationService.Navigate(Admin);
+            }
+            else
                 MessageBox.Show("Неверный логин или пароль");
+
         }
     }
 }

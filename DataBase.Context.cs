@@ -15,6 +15,13 @@ namespace Kursovoy
     
     public partial class AviakompaniyaEntities : DbContext
     {
+        private static AviakompaniyaEntities context;
+        public static AviakompaniyaEntities GetContext()
+        {
+            if (context == null)
+                context = new AviakompaniyaEntities();
+            return context;
+        }
         public AviakompaniyaEntities()
             : base("name=AviakompaniyaEntities")
         {
