@@ -103,9 +103,9 @@
 />
             </Grid>
         </Border>
-        <Button Content="Найти билет" Grid.Column="4" HorizontalAlignment="Left" Margin="38.8,8.4,-96.8,0" Grid.Row="1" VerticalAlignment="Top" Width="150" Height="36"/>
+        <Button Content="Найти билет" Grid.Column="4" Margin="38.8,8.4,-96.8,0" Grid.Row="1" VerticalAlignment="Top" Height="36" Click="Button_Click"/>
         <Button Content="Личный кабинет" Name="PA" Grid.Column="4" Margin="245.8,10.4,-371.8,9.8" Grid.Row="1" Click="PA_Button_Click" Height="Auto" />
-        
+
 
     </Grid>
 

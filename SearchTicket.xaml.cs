@@ -80,7 +80,7 @@ namespace Kursovoy
                 {
 
                     CbNaimTovCity.ItemsSource = db.Flights.Where(x => x.Fly_Town == (int)((ComboBox)sender).SelectedValue).Select(x => new { x.Town.Town1, x.Arrival_Town }).ToList();
-                   
+
                     CbNaimTovCity.SelectedIndex = -1;
                 }
 
@@ -153,7 +153,38 @@ namespace Kursovoy
             this.NavigationService.Navigate(personalaccount);
         }
 
-
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            using (var db = new AviakompaniyaEntities()) //{ Aircraft_Number = p.Aircraft_Number ,Flight_Number = p.Flight_Number , Airline_Number = t.Airline_Number}
+            {
+                var isFounded = db.Flights
+                    .Join(db.Aircraft1, f => f.Aircraft_Number, a => a.Aircraft_Number, (f, a) => new { a, f })
+                    .Join(db.Places, @t => @t.a.Aircraft_Number, p => p.Aircraft_Number, (@t, p) => new { @t, p })
+                    .Where(@t =>
+                        @t.@t.f.Arrival_Town == (int)CbNaimTovCity.SelectedValue &&
+                        @t.@t.f.Fly_Town == (int)CbNaimTovCountry.SelectedValue && !@t.p.Is_Occupated)
+                    .FirstOrDefault();
+                if (isFounded != null)
+                {
+                    db.Tickets.Add(new Tickets()
+                    {
+                        Aircraft_Number = isFounded.p.Aircraft_Number,
+                        Flight_Number = isFounded.t.f.Flight_Number,
+                        Airline_Number = isFounded.t.a.Airline_Number,
+                        Passenger_Number = PassangerRecord.passangerRecord.Passenger_Number,
+                        Place_Number = isFounded.p.Place_Number,
+                        Row_Number = isFounded.p.Row_Number
+                    });
+                    isFounded.p.Is_Occupated = true;
+                    MessageBox.Show("Место куплено!");
+                    db.SaveChanges();
+                }
+                else
+                {
+                    MessageBox.Show("Мест нет, мы вам перезвоним");
+                }
+            }
+        }
     }
 
 }

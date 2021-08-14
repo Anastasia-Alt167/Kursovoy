@@ -17,6 +17,7 @@ namespace Kursovoy
         public int Place_Number { get; set; }
         public int Row_Number { get; set; }
         public int Aircraft_Number { get; set; }
+        public bool Is_Occupated { get; set; }
     
         public virtual Aircraft1 Aircraft1 { get; set; }
     }

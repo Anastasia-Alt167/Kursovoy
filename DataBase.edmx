@@ -68,6 +68,7 @@
           <Property Name="Place_Number" Type="int" Nullable="false" />
           <Property Name="Row_Number" Type="int" Nullable="false" />
           <Property Name="Aircraft_Number" Type="int" Nullable="false" />
+          <Property Name="Is_Occupated" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -83,7 +84,7 @@
           <Key>
             <PropertyRef Name="Ticket_Number" />
           </Key>
-          <Property Name="Ticket_Number" Type="int" Nullable="false" />
+          <Property Name="Ticket_Number" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Passenger_Number" Type="int" />
           <Property Name="Airline_Number" Type="int" />
           <Property Name="Flight_Number" Type="int" />
@@ -331,6 +332,7 @@
           <Property Name="Row_Number" Type="Int32" Nullable="false" />
           <Property Name="Aircraft_Number" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Aircraft1" Relationship="Self.FK_Places_Aircraft1" FromRole="Places" ToRole="Aircraft1" />
+          <Property Name="Is_Occupated" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -590,6 +592,7 @@
           <EntitySetMapping Name="Places">
             <EntityTypeMapping TypeName="AviakompaniyaModel.Places">
               <MappingFragment StoreEntitySet="Places">
+                <ScalarProperty Name="Is_Occupated" ColumnName="Is_Occupated" />
                 <ScalarProperty Name="Place_Number" ColumnName="Place_Number" />
                 <ScalarProperty Name="Row_Number" ColumnName="Row_Number" />
                 <ScalarProperty Name="Aircraft_Number" ColumnName="Aircraft_Number" />
