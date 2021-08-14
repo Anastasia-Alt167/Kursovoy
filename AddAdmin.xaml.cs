@@ -102,7 +102,7 @@ namespace Kursovoy
                                                         CMMND.Parameters.Add("@Arrival_Town", SqlDbType.Int).Value = Arrival_Town.Text;
                                                         CMMND.Parameters.Add("@Arrival_Time", SqlDbType.Time).Value = Arrival_Time.Text;
                                                         CMMND.Parameters.Add("@Aircraft_Number", SqlDbType.Int).Value = Aircraft_Number.Text;
-                                                        
+
                                                         CMMND.ExecuteNonQuery();
                                                         CN.Close();
                                                         MessageBox.Show("Информация сохранена");
@@ -111,7 +111,8 @@ namespace Kursovoy
                                                     }
                                                 }
 
-                                               }        }
+                                            }
+                                        }
                                     }
                                 }
                             }

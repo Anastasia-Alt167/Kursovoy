@@ -28,7 +28,8 @@ namespace Kursovoy
 
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
-
+            Uri addadmin = new Uri("AddAdmin.xaml", UriKind.Relative);
+            this.NavigationService.Navigate(addadmin);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -37,10 +38,29 @@ namespace Kursovoy
             this.NavigationService.Navigate(authorization);
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        
+
+        private void Button_Click_Del(object sender, RoutedEventArgs e)
         {
-           Uri addadmin = new Uri("AddAdmin.xaml", UriKind.Relative);
-            this.NavigationService.Navigate(addadmin);
+            var flightsForRemoving = DGAvia.SelectedItems.Cast<Flights>().ToList();
+
+            if (MessageBox.Show($"Вы точно хотите удалить следующие {flightsForRemoving.Count()} элементов?", "Внимание",
+                MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                try
+                {
+                    AviakompaniyaEntities.GetContext().Flights.RemoveRange(flightsForRemoving);
+                    AviakompaniyaEntities.GetContext().SaveChanges();
+                    MessageBox.Show("Данные удалены");
+
+                    DGAvia.ItemsSource = AviakompaniyaEntities.GetContext().Flights.ToList();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString());
+                }
+                
+            }
         }
     }
     

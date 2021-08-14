@@ -45,7 +45,12 @@ namespace Kursovoy
             Calendar.DisplayDateStart = date;
             using (var context = new AviakompaniyaEntities())
             {
-                CbNaimTovCountry.ItemsSource = context.Town.ToList();
+                CbNaimTovCountry.ItemsSource = (from t in context.Town
+                                                join f in context.Flights on t.Town_Code equals f.Fly_Town
+                                                select new { t.Town1, f.Fly_Town }).ToList();//context.Town.ToList();
+                //(from t in context.Town
+                // join f in context.Flights on t.Town_Code equals f.Fly_Town
+                // select new { t.Town1, f.Fly_Town }).ToList();
             }
         }
         private bool flagButton = false;
@@ -66,13 +71,22 @@ namespace Kursovoy
 
         private void CbNaimTovCountry_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            var test = e.AddedItems[0];
-            NameOfCity p = new NameOfCity((Town)test);
+            // var test = e.AddedItems[0];
+
             using (var db = new AviakompaniyaEntities())
             {
-                CbNaimTovCity.ItemsSource = db.Town.Where(x => x.Town1 != NameOfCity.name.Town1).Select(x => x).ToList();
+                NameOfCity p = new NameOfCity(db.Town.FirstOrDefault(x => x.Town_Code == (int)((ComboBox)sender).SelectedValue));
+                if (CbNaimTovCountry.SelectedIndex != -1)
+                {
+
+                    CbNaimTovCity.ItemsSource = db.Flights.Where(x => x.Fly_Town == (int)((ComboBox)sender).SelectedValue).Select(x => new { x.Town.Town1, x.Arrival_Town }).ToList();
+                   
+                    CbNaimTovCity.SelectedIndex = -1;
+                }
+
             }
         }
+
 
         private void Count_Of_Adults_Children_Baby(int countOfAdults, int countOfChildren, int countOfBaby)
         {
@@ -138,5 +152,9 @@ namespace Kursovoy
             Uri personalaccount = new Uri("PersonalAccount.xaml", UriKind.Relative);
             this.NavigationService.Navigate(personalaccount);
         }
+
+
     }
+
 }
+
