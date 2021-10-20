@@ -32,21 +32,13 @@
                   VerticalAlignment="Top" Width="180" Height="34"  materialDesign:HintAssist.Hint = "Откуда" IsTextSearchCaseSensitive="False"
                   IsTextSearchEnabled="False" IsEditable="True" TextSearch.TextPath="Town1" DisplayMemberPath="Town1" 
                   SelectedValuePath="Fly_Town" SelectedValue="{Binding Path = Fly_town}" ItemsSource="{Binding Town1}" SelectionChanged="CbNaimTovCountry_SelectionChanged">
-            <!--<ComboBox.ItemTemplate>
-                <DataTemplate>
-                    <TextBlock Text="{Binding Town1}" />
-                </DataTemplate>
-            </ComboBox.ItemTemplate>-->
+           
         </ComboBox>
         <ComboBox Grid.Row="1" Name="CbNaimTovCity" FontWeight = "Bold" Foreground="Black" Background="#ffec38" HorizontalAlignment="Left" Margin="34.6,10.4,0,0" 
                   VerticalAlignment="Top"  Width="180" Height="34" materialDesign:HintAssist.Hint = "Куда" FontSize="13"  IsTextSearchCaseSensitive="False"
                         IsTextSearchEnabled="False" IsEditable="True" TextSearch.TextPath="Town1" SelectedIndex="-1" DisplayMemberPath="Town1" SelectedValuePath="Arrival_Town"
                   SelectedValue="{Binding Path = Arrival_town}" ItemsSource="{Binding Town}" Grid.Column="1" >
-            <!--<ComboBox.ItemTemplate>
-                <DataTemplate>
-                    <TextBlock Text="{Binding Town1}" />
-                </DataTemplate>
-            </ComboBox.ItemTemplate>-->
+      
         </ComboBox>
 
 

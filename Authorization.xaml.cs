@@ -43,10 +43,8 @@ namespace Kursovoy
             };
             if (passengers != null)
             {
-                //using (var context = new AviakompaniyaEntities())
-                //{
-                    PassangerRecord.passangerRecord = passengers; //context.Passengers.Where(x => x.Login == Login.Text).Select(x => x).FirstOrDefault();
-                //}
+                
+                    PassangerRecord.passangerRecord = passengers; 
                 Uri searchticket = new Uri("SearchTicket.xaml", UriKind.Relative);
                 this.NavigationService.Navigate(searchticket);
             }

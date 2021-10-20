@@ -25,8 +25,8 @@
                 <TextBox materialDesign:HintAssist.Hint="Логин" Name="LoginReg" Foreground="White" Margin="0 0 0 10" Style="{StaticResource MaterialDesignFloatingHintTextBox}" CaretBrush="#FF006D4F" SelectionBrush="#FF1F7D63" BorderBrush="#FF006D4F"/>
                 <PasswordBox materialDesign:HintAssist.Hint="Пароль" Name="PasswordReg" Foreground="White" Margin="0 0 0 10" Style="{StaticResource  MaterialDesignFloatingHintPasswordBox}" BorderBrush="#FF006D4F" CaretBrush="#FF006D4F" SelectionBrush="#FF1F7D63"/>
                 <Grid>
-                    <Button HorizontalAlignment="Left"  Content="Батя в здании" Foreground="White" Background="#00695c" Style="{StaticResource MaterialDesignFlatButton }" Margin="90,0,0,0" Width="187" Click="ButtonReg_Click"/>
-                    <Button HorizontalAlignment="Right"  Content="К регистрации" Foreground="White" Background="#00695c" Style="{StaticResource MaterialDesignFlatButton }" Margin="0,0,174,0" Click="Button_KReg_Click" />
+                    <Button HorizontalAlignment="Left"  Content="Готово" Foreground="White" Background="#00695c" Style="{StaticResource MaterialDesignFlatButton }" Margin="90,0,0,0" Width="187" Click="ButtonReg_Click"/>
+                    <Button HorizontalAlignment="Right"  Content="К авторизации" Foreground="White" Background="#00695c" Style="{StaticResource MaterialDesignFlatButton }" Margin="0,0,174,0" Click="Button_KReg_Click" />
 
                 </Grid>
 

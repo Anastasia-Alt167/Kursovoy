@@ -181,7 +181,7 @@ namespace Kursovoy
                 }
                 else
                 {
-                    MessageBox.Show("Мест нет, мы вам перезвоним");
+                    MessageBox.Show("Места заполнены");
                 }
             }
         }
