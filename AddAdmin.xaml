@@ -44,7 +44,7 @@
         <TextBlock  FontSize = "14" FontWeight = "Bold" Text="Дата прилета"  HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="4"/>
 
         <ComboBox Name="Arrival_Town" Grid.Column="1" Grid.Row="5"/>
-        <TextBlock  FontSize = "14" FontWeight = "Bold" Text="Город вылета"  HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="5"/>
+        <TextBlock  FontSize = "14" FontWeight = "Bold" Text="Город прилета"  HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="5"/>
 
         <TextBox Name="Arrival_Time" MaxLength="100" Height="30" Grid.Row="6" Grid.Column="1"/>
         <TextBlock   FontSize = "14" FontWeight = "Bold" Text="Время прилета"  HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="6"/>
