@@ -38,7 +38,7 @@
           <Key>
             <PropertyRef Name="Flight_Number" />
           </Key>
-          <Property Name="Flight_Number" Type="int" Nullable="false" />
+          <Property Name="Flight_Number" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Fly_Date" Type="date" />
           <Property Name="Fly_Time" Type="time" Precision="7" />
           <Property Name="Fly_Town" Type="int" />

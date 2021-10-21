@@ -22,105 +22,162 @@ namespace Kursovoy
     /// </summary>
     public partial class AddAdmin : Page
     {
-        public AddAdmin()
+        public static class FlightsRecord
         {
-            InitializeComponent();
+            public static Flights flightsRecord;
         }
-        public string ConStr = @"Data Source=A_BOOK\SQLEXPRESS; Initial Catalog=KursProject; Integrated Security=True;";
+    //    public AddAdmin()
+    //    {
+    //        InitializeComponent();
+    //        using (var context = new AviakompaniyaEntities())
+    //        {
+    //            //Flight_Number.Text = context.Flights.Where(x => x.Flight_Number == FlightsRecord.flightsRecord.Flight_Number).Select(x => x.Flight_Number).FirstOrDefault().ToString();
+    //            Fly_Date.Text = context.Flights.Where(x => x.Flight_Number == FlightsRecord.flightsRecord.Flight_Number).Select(x => x.Fly_Date).FirstOrDefault()?.ToString();
+    //            Fly_Time.Text = context.Flights.Where(x => x.Flight_Number == FlightsRecord.flightsRecord.Flight_Number).Select(x => x.Fly_Time).FirstOrDefault()?.ToString();
+    //            Fly_Town.Text = context.Flights.Where(x => x.Flight_Number == FlightsRecord.flightsRecord.Flight_Number).Select(x => x.Fly_Town).FirstOrDefault()?.ToString();
+    //            Arrival_Date.Text = context.Flights.Where(x => x.Flight_Number == FlightsRecord.flightsRecord.Flight_Number).Select(x => x.Arrival_Date).FirstOrDefault()?.ToString();
+    //            Arrival_Town.Text = context.Flights.Where(x => x.Flight_Number == FlightsRecord.flightsRecord.Flight_Number).Select(x => x.Arrival_Town).FirstOrDefault()?.ToString();
+    //            Arrival_Time.Text = context.Flights.Where(x => x.Flight_Number == FlightsRecord.flightsRecord.Flight_Number).Select(x => x.Arrival_Time).FirstOrDefault()?.ToString();
+    //            Aircraft_Number.Text = context.Flights.Where(x => x.Flight_Number == FlightsRecord.flightsRecord.Flight_Number).Select(x => x.Aircraft_Number).FirstOrDefault()?.ToString();
+    //        }
+    //    }
+    //    const int lengthOfFlightNumber = 10;
+    //    const int lengthOfFlyDate = 10;
+    //    const int lengthOfFlyTime = 5;
+    //    const int lengthOfFlyTown = 40;
+    //    const int lengthOfArrivalDate = 10;
+    //    const int lengthOfArrivalTime = 5;
+    //    const int lengthOfArrivalTown = 40;
+    //    const int lengthOfAircraftNumber = 10;
+    //    public bool CheckFlightsInformation(string stringToCheck) => (stringToCheck.Length < lengthOfFlightNumber) && stringToCheck.All(c => Char.IsLetter(c));
 
-        private void BtnSave_Click(object sender, RoutedEventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(Flight_Number.Text))
-                MessageBox.Show("Укажите номер рейса");
-            else
-            {
-                int FN = 0;
-                try
-                {
-                    FN = Convert.ToInt32(Flight_Number.Text);
-                }
-                catch
-                {
-                    MessageBox.Show("Введите число");
-                }
-                finally
-                {
-                    if (FN < 0)
-                        MessageBox.Show("Укажите верно");
-                    else
-                    {
-                        if (string.IsNullOrWhiteSpace(Fly_Date.Text))
-                            MessageBox.Show("Укажите дату вылета");
-                        else
-                        {
-                            if (string.IsNullOrWhiteSpace(Fly_Time.Text))
-                                MessageBox.Show("Укажите время вылета");
-                            else
-                            {
-                                if (string.IsNullOrWhiteSpace(Fly_Town.Text))
-                                    MessageBox.Show("Укажите город вылета");
-                                else
-                                {
-                                    if (string.IsNullOrWhiteSpace(Arrival_Date.Text))
-                                        MessageBox.Show("Укажите дату прилета");
-                                    else
-                                    {
-                                        if (string.IsNullOrWhiteSpace(Arrival_Town.Text))
-                                            MessageBox.Show("Укажите город прилета");
-                                        else
-                                        {
-                                            if (string.IsNullOrWhiteSpace(Arrival_Time.Text))
-                                                MessageBox.Show("Укажите время прилета");
-                                            else
+       private void BtnSave_Click(object sender, RoutedEventArgs e)
+       {
+    //        //if (!(CheckFlightsInformation(Flight_Number.Text)))
+    //        //{
+    //        //    Flight_Number.ToolTip = "Некорректно введен номер самолета.";
+    //        //    var backgroundColor = new BrushConverter();
+    //        //    Flight_Number.Background = (Brush)backgroundColor.ConvertFrom("#FFFF5E5B");
+    //        //}
+    //        //else
+    //        //{
+    //        //    Flight_Number.Background = Brushes.Transparent;
+    //        //    Flight_Number.ToolTip = null;
+    //        //}
+    //        if (!(CheckFlightsInformation(Fly_Date.Text)))
+    //        {
+    //            Fly_Date.ToolTip = "Некорректно введена дата вылета.";
+    //            var backgroundColor = new BrushConverter();
+    //            Fly_Date.Background = (Brush)backgroundColor.ConvertFrom("#FFFF5E5B");
+    //        }
+    //        else
+    //        {
+    //            Fly_Date.Background = Brushes.Transparent;
+    //            Fly_Date.ToolTip = null;
+    //        }
+    //        if (!(CheckFlightsInformation(Fly_Time.Text)))
+    //        {
+    //            Fly_Time.ToolTip = "Некорректно введено время вылета.";
+    //            var backgroundColor = new BrushConverter();
+    //            Fly_Time.Background = (Brush)backgroundColor.ConvertFrom("#FFFF5E5B");
+    //        }
+    //        else
+    //        {
+    //            Fly_Time.Background = Brushes.Transparent;
+    //            Fly_Time.ToolTip = null;
+    //        }
+    //        if (!(CheckFlightsInformation(Fly_Town.Text)))
+    //        {
+    //            Fly_Town.ToolTip = "Некорректно введен город вылета";
+    //            var backgroundColor = new BrushConverter();
+    //            Fly_Town.Background = (Brush)backgroundColor.ConvertFrom("#FFFF5E5B");
+    //        }
+    //        else
+    //        {
+    //            Fly_Town.Background = Brushes.Transparent;
+    //            Fly_Town.ToolTip = null;
+    //        }
+    //        if (!(CheckFlightsInformation(Arrival_Date.Text)))
+    //        {
+    //            Arrival_Date.ToolTip = "Некорректно введена дата прилета.";
+    //            var backgroundColor = new BrushConverter();
+    //            Arrival_Date.Background = (Brush)backgroundColor.ConvertFrom("#FFFF5E5B");
+    //        }
+    //        else
+    //        {
+    //            Arrival_Date.Background = Brushes.Transparent;
+    //            Arrival_Date.ToolTip = null;
+    //        }
+    //        if (!(CheckFlightsInformation(Arrival_Town.Text)))
+    //        {
+    //            Arrival_Town.ToolTip = "Некорректно введен город прилета.";
+    //            var backgroundColor = new BrushConverter();
+    //            Arrival_Town.Background = (Brush)backgroundColor.ConvertFrom("#FFFF5E5B");
+    //        }
+    //        else
+    //        {
+    //            Arrival_Town.Background = Brushes.Transparent;
+    //            Arrival_Town.ToolTip = null;
+    //        }
+    //        if (!(CheckFlightsInformation(Arrival_Time.Text)))
+    //        {
+    //            Arrival_Time.ToolTip = "Некорректно введено время прилета.";
+    //            var backgroundColor = new BrushConverter();
+    //            Arrival_Time.Background = (Brush)backgroundColor.ConvertFrom("#FFFF5E5B");
+    //        }
+    //        else
+    //        {
+    //            Arrival_Time.Background = Brushes.Transparent;
+    //            Arrival_Time.ToolTip = null;
+    //        }
+    //        if (!(CheckFlightsInformation(Aircraft_Number.Text)))
+    //        {
+    //            Aircraft_Number.ToolTip = "Некорректно введен номер самолета.";
+    //            var backgroundColor = new BrushConverter();
+    //            Aircraft_Number.Background = (Brush)backgroundColor.ConvertFrom("#FFFF5E5B");
+    //        }
+    //        else
+    //        {
+    //            Aircraft_Number.Background = Brushes.Transparent;
+    //            Aircraft_Number.ToolTip = null;
+    //            using (var context = new AviakompaniyaEntities())
+    //            {
 
-                                              if (string.IsNullOrWhiteSpace(Aircraft_Number.Text))
-                                                MessageBox.Show("Укажите номер самолета");
-                                            else
-                                            {
-                                                int AN = 0;
-                                                try
-                                                {
-                                                    AN = Convert.ToInt32(Flight_Number.Text);
-                                                }
-                                                catch
-                                                {
-                                                    MessageBox.Show("Введите число");
-                                                }
-                                                finally
-                                                {
-
-                                                    using (SqlConnection CN = new SqlConnection(ConStr))
-                                                    {
-                                                        CN.Open();
-                                                        SqlCommand CMMND = new SqlCommand("INSERT INTO AviakompaniyaEntities VALUES (@Flight_Number, @Fly_Date, @Fly_Time, @Fly_Town, @Arrival_Date, @Arrival_Town, @Arrival_Time, @Aircraft_Number, " +
-                                                            "NULL)", CN);
-                                                        CMMND.Parameters.Add("@Flight_Number", SqlDbType.NVarChar).Value = Flight_Number.Text;
-                                                        CMMND.Parameters.Add("@Fly_Date", SqlDbType.Date).Value = Fly_Date.Text;
-                                                        CMMND.Parameters.Add("@Fly_Time", SqlDbType.Time).Value = Fly_Time.Text;
-                                                        CMMND.Parameters.Add("@Fly_Town", SqlDbType.Int).Value = Fly_Town.Text;
-                                                        CMMND.Parameters.Add("@Arrival_Date", SqlDbType.Date).Value = Arrival_Date.Text;
-                                                        CMMND.Parameters.Add("@Arrival_Town", SqlDbType.Int).Value = Arrival_Town.Text;
-                                                        CMMND.Parameters.Add("@Arrival_Time", SqlDbType.Time).Value = Arrival_Time.Text;
-                                                        CMMND.Parameters.Add("@Aircraft_Number", SqlDbType.Int).Value = Aircraft_Number.Text;
-
-                                                        CMMND.ExecuteNonQuery();
-                                                        CN.Close();
-                                                        MessageBox.Show("Информация сохранена");
-                                                        Uri addadmin = new Uri("AddAdmin.xaml", UriKind.Relative);
-                                                        this.NavigationService.Navigate(addadmin);
-                                                    }
-                                                }
-
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-
-                        }
-                    }
-                }
-            }
-        }
+    //                //(from x in context.Flights where x.Flight_Number == FlightsRecord.flightsRecord.Flight_Number select x).ToList().ForEach(x => x.Flight_Number = Flight_Number.Text);
+    //                (from x in context.Flights where x.Flight_Number == FlightsRecord.flightsRecord.Flight_Number select x).ToList().ForEach(x => x.Fly_Date = Fly_Date.Text);
+    //                (from x in context.Flights where x.Flight_Number == FlightsRecord.flightsRecord.Flight_Number select x).ToList().ForEach(x => x.Fly_Time = Fly_Time.Text);
+    //                (from x in context.Flights where x.Flight_Number == FlightsRecord.flightsRecord.Flight_Number select x).ToList().ForEach(x => x.Fly_Town = Fly_Town.Text);
+    //                (from x in context.Flights where x.Flight_Number == FlightsRecord.flightsRecord.Flight_Number select x).ToList().ForEach(x => x.Arrival_Date = Arrival_Date.Text);
+    //                (from x in context.Flights where x.Flight_Number == FlightsRecord.flightsRecord.Flight_Number select x).ToList().ForEach(x => x.Arrival_Town = Arrival_Town.Text);
+    //                (from x in context.Flights where x.Flight_Number == FlightsRecord.flightsRecord.Flight_Number select x).ToList().ForEach(x => x.Arrival_Time = Arrival_Time.Text);
+    //                (from x in context.Flights where x.Flight_Number == FlightsRecord.flightsRecord.Flight_Number select x).ToList().ForEach(x => x.Aircraft_Number = Aircraft_Number.Text);
+    //                context.SaveChanges();
+    //            }
+    //        }
+       }
     }
 }
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
