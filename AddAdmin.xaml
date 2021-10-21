@@ -56,7 +56,7 @@
                 Background="#00251a" BorderBrush = "{x:Null}" Foreground = "White" FontWeight = "Bold" Height="30" Width="150" HorizontalAlignment="Right" Click="BtnSave_Click"/>
 
         <Button Content="Назад" Grid.ColumnSpan="2" Grid.Row="9" FontSize = "15" IsCancel="True"
-                Background="#00251a" BorderBrush = "{x:Null}" Foreground = "White" FontWeight = "Bold" Height="30" Width="150" HorizontalAlignment="Left"/>
+                Background="#00251a" BorderBrush = "{x:Null}" Foreground = "White" FontWeight = "Bold" Height="30" Width="150" HorizontalAlignment="Left" Click="Back_Click"/>
 
 
 

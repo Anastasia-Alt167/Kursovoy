@@ -17,6 +17,7 @@ using System.Windows.Shapes;
 using System.Globalization;
 using System.Text.RegularExpressions;
 
+
 namespace Kursovoy
 {
     /// <summary>
@@ -183,7 +184,7 @@ namespace Kursovoy
                         string lou = Arrival_Town.Text.ToString();
                         int u = Convert.ToInt32(lou);
 
-                        var format1 = new[] { "%h", "0,hh\\:mm,0,0" };
+                        var format1 = new[] { "%h", "hh\\:mm" };
                         var d = TimeSpan.ParseExact(Arrival_Time.Text, format1, CultureInfo.InvariantCulture);
 
                         string loa = Aircraft_Number.Text.ToString();
@@ -224,6 +225,13 @@ namespace Kursovoy
 
                 }
             }
+        }
+
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+            Uri admin = new Uri("Admin.xaml", UriKind.Relative);
+            this.NavigationService.Navigate(admin);
+           
         }
     }
 }
