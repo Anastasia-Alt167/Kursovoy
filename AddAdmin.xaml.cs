@@ -233,6 +233,12 @@ namespace Kursovoy
             this.NavigationService.Navigate(admin);
            
         }
+
+        private void TownClick(object sender, RoutedEventArgs e)
+        {
+            Uri ttowns = new Uri("Ttowns.xaml", UriKind.Relative);
+            this.NavigationService.Navigate(ttowns);
+        }
     }
 }
         
